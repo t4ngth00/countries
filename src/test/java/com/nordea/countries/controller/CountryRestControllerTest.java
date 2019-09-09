@@ -43,12 +43,12 @@ public class CountryRestControllerTest {
             .thenReturn(Single.just(countryCodes));
 
         MvcResult mvcResult = mockMvc.perform(get("/country_codes")
-                .contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andReturn();
+            .contentType(MediaType.APPLICATION_JSON_VALUE))
+            .andReturn();
 
         mockMvc.perform(asyncDispatch(mvcResult))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.country_codes", equalTo(countryCodes)));
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.country_codes", equalTo(countryCodes)));
 
         verify(countryService, times(1)).getCountryCodes();
     }
@@ -56,16 +56,16 @@ public class CountryRestControllerTest {
     @Test
     public void GetCountryCapitalByCode_Success_Return200_With_CountryCapitalDTO() throws Exception {
         when(countryService.getCountryCapitalByCode(anyString()))
-                .thenReturn(Single.just(new CountryCapitalDTO("Finland", "Helsinki")));
+            .thenReturn(Single.just(new CountryCapitalDTO("Finland", "Helsinki")));
 
         MvcResult mvcResult = mockMvc.perform(get("/capital/fi")
-                .contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andReturn();
+            .contentType(MediaType.APPLICATION_JSON_VALUE))
+            .andReturn();
 
         mockMvc.perform(asyncDispatch(mvcResult))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name", equalTo("Finland")))
-                .andExpect(jsonPath("$.capital", equalTo("Helsinki")));
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.name", equalTo("Finland")))
+            .andExpect(jsonPath("$.capital", equalTo("Helsinki")));
 
         verify(countryService, times(1)).getCountryCapitalByCode(anyString());
     }
@@ -89,9 +89,9 @@ public class CountryRestControllerTest {
                 .andReturn();
 
         mockMvc.perform(asyncDispatch(mvcResult))
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.status_code", equalTo(expectedStatusCode)))
-                .andExpect(jsonPath("$.status_text", equalTo(HttpStatus.valueOf(expectedStatusCode).getReasonPhrase())));
+            .andExpect(status().isBadRequest())
+            .andExpect(jsonPath("$.status_code", equalTo(expectedStatusCode)))
+            .andExpect(jsonPath("$.status_text", equalTo(HttpStatus.valueOf(expectedStatusCode).getReasonPhrase())));
 
         verify(countryService, times(1)).getCountryCapitalByCode(anyString());
     }
@@ -101,23 +101,23 @@ public class CountryRestControllerTest {
         int expectedStatusCode = 404;
 
         when(countryService.getCountryCapitalByCode(anyString()))
-                .thenReturn(Single.error(new RestClientResponseException(
-                    "404 Exception",
-                    expectedStatusCode,
-                    null,
-                    null,
-                    null,
-                    null
-                )));
+            .thenReturn(Single.error(new RestClientResponseException(
+                "404 Exception",
+                expectedStatusCode,
+                null,
+                null,
+                null,
+                null
+            )));
 
         MvcResult mvcResult = mockMvc.perform(get("/capital/fi")
-                .contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andReturn();
+            .contentType(MediaType.APPLICATION_JSON_VALUE))
+            .andReturn();
 
         mockMvc.perform(asyncDispatch(mvcResult))
-                .andExpect(status().isNotFound())
-                .andExpect(jsonPath("$.status_code", equalTo(expectedStatusCode)))
-                .andExpect(jsonPath("$.status_text", equalTo(HttpStatus.valueOf(expectedStatusCode).getReasonPhrase())));
+            .andExpect(status().isNotFound())
+            .andExpect(jsonPath("$.status_code", equalTo(expectedStatusCode)))
+            .andExpect(jsonPath("$.status_text", equalTo(HttpStatus.valueOf(expectedStatusCode).getReasonPhrase())));
 
         verify(countryService, times(1)).getCountryCapitalByCode(anyString());
     }
