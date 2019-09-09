@@ -1,0 +1,32 @@
+# Countries API
+
+Project for retrieving countries information all over the world
+
+## Installation instruction
+
+* Clone this repository.
+* Go to the project.
+```
+cd countries
+```
+* Start the server:
+```bash
+./mvnw spring-boot:run
+```
+Server has been config to be run on port 3000. Therefore, the base URL is http://localhost:3000/
+
+## API endpoints:
+```bash
+[GET] /country_codes (Get all the country codes)
+[GET] /capital/{country_code} (Get country name and capital by a country code)
+```
+
+## Try the APIs:
+
+After starting the server. Please click one of those URLs below to try the APIs
+
+[Retrieve all country codes](http://localhost:3000/country_codes)
+
+[Retrieve capital of Finland](http://localhost:3000/capital/fi)
+
+[Retrieve capital of Vietnam](http://localhost:3000/capital/vn)
