@@ -1,4 +1,4 @@
-# Countries API
+# Countries APIs
 
 Project for retrieving countries information all over the world
 
@@ -27,6 +27,6 @@ After starting the server. Please click one of those URLs below to try the APIs
 
 [Retrieve all country codes](http://localhost:3000/country_codes)
 
-[Retrieve capital of Finland](http://localhost:3000/capital/fi)
+[Retrieve the capital of Finland](http://localhost:3000/capital/fi)
 
-[Retrieve capital of Vietnam](http://localhost:3000/capital/vn)
+[Retrieve the capital of Vietnam](http://localhost:3000/capital/vn)
