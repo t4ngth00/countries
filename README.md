@@ -3,8 +3,8 @@
 Project for retrieving countries information all over the world
 
 ## Prerequisites
-* JDK 8 or later
-* Maven
+* [JDK 8](https://www.oracle.com/java/technologies/javase-jsp-downloads.html) or later
+* [Maven](https://maven.apache.org/)
 
 ## Installation instruction
 
