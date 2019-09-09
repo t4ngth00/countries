@@ -13,7 +13,7 @@ cd countries
 ```bash
 ./mvnw spring-boot:run
 ```
-Server has been config to be run on port 3000. Therefore, the base URL is http://localhost:3000/
+The server has been configured to be run on port 3000. Therefore, the base URL is http://localhost:3000/
 
 ## API endpoints:
 ```bash
