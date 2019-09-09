@@ -2,6 +2,10 @@
 
 Project for retrieving countries information all over the world
 
+## Prerequisites
+* JDK 8 or later
+* Maven
+
 ## Installation instruction
 
 * Clone this repository.
